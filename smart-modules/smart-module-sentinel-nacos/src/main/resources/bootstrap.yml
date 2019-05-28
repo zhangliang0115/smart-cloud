@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: alibaba-sentinel-nacos
+  cloud:
+    nacos:
+      config:
+        server-addr: nacos.didispace.com:80
+        file-extension: yaml
+        namespace: eda986e0-fce6-4787-af44-e84754fcd33e
+#    sentinel:
+#      transport:
+#        dashboard: localhost:8080
+#      datasource:
+#        ds:
+#          nacos:
+#            namespace: eda986e0-fce6-4787-af44-e84754fcd33e
+#            server-addr: nacos.didispace.com:80
+#            dataId: ${spring.application.name}-sentinel
+#            rule-type: flow
+#        ds1:
+#          nacos:
+#            namespace: eda986e0-fce6-4787-af44-e84754fcd33e
+#            server-addr: nacos.didispace.com:80
+#            dataId: ${spring.application.name}-sentinel1
+#            rule-type: flow
+#
+#server:
+#  port: 8081
+
+
+
+
+
+
+

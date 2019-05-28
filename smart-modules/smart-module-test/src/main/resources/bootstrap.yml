@@ -1,0 +1,30 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: sca-conumer
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      #            config:
+      #                server-addr: nacos.com:8848
+      discovery:
+        server-addr: nacos.didispace.com:80
+        namespace: eda986e0-fce6-4787-af44-e84754fcd33e
+dubbo:
+  registry:
+    address: spring-cloud://nacos.didispace.com:80
+  application:
+    qos-enable: false
+#    cloud:
+#        subscribed-services: ${provider.application.name}
+
+provider:
+  application:
+    name: account-provider
+smart:
+  dubbo:
+    qos-port: 11111
+
+

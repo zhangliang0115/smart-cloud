@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.smart.cloud.core.autoconfigure.SmartAutoConfiguration,\
+com.smart.cloud.core.fix.dubbo.FixDubboConfigAutoConfiguration,\
+com.smart.cloud.core.fix.dubbo.FixDubboConfigNacosAutoConfiguration,\
+com.smart.cloud.core.fix.sentinel.FixSentinelGlobalBlockException

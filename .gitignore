@@ -1,0 +1,28 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+
+target
+smart-cloud-auth/target/generated-sources/
+smart-cloud-auth/target/smart-cloud-auth-1.0-SNAPSHOT/META-INF/
+smart-cloud-cache/src/
+smart-cloud-cache/target/classes/
+smart-cloud-core/src/test/
+smart-cloud-core/target/generated-sources/
+smart-cloud-gateway/src/test/
+smart-cloud-gateway/target/generated-sources/
+smart-modules/smart-module-account/src/main/resources/static/
+smart-modules/smart-module-account/src/main/resources/templates/
+smart-modules/smart-module-sentinel-nacos/src/main/resources/static/
+smart-modules/smart-module-sentinel-nacos/src/main/resources/templates/
+smart-modules/smart-module-sentinel/src/main/resources/static/
+smart-modules/smart-module-sentinel/src/main/resources/templates/
+smart-modules/smart-module-test/src/test/
+smart-modules/smart-module-test/target/generated-sources/
+target/

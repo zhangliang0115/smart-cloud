@@ -1,0 +1,28 @@
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'
+spring:
+  application:
+    name: account-provider
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos.didispace.com:80
+        namespace: eda986e0-fce6-4787-af44-e84754fcd33e
+      config:
+        server-addr: nacos.didispace.com:80
+        file-extension: yaml
+        namespace: eda986e0-fce6-4787-af44-e84754fcd33e
+        shared-dataids: db.yaml
+
+---
+logging:
+  level:
+    root: warn
+    com.smart.cloud: trace
+#  pattern:
+#    console: '[%p:%d{yyyy-MM-dd HH:mm:ss}] %c.%M(%F:%L)%m%n'

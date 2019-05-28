@@ -1,0 +1,45 @@
+server:
+  port: 8080
+
+---
+
+spring:
+  application:
+    name: smart-cloud-auth
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos.com:8848
+      config:
+        server-addr: nacos.com:8848
+        shared-dataids: dubbo.properties
+        refreshable-dataids: dubbo.properties
+        name: smart-auth
+
+dubbo:
+  scan:
+    base-packages: com.smart.cloud.auth
+  protocols:
+    dubbo:
+      name: dubbo
+      port: -1
+  registry:
+    address: spring-cloud://nacos.com:8848
+  application:
+    qos-enable: false
+
+
+
+---
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+
+
