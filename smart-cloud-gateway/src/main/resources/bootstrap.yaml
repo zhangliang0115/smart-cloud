@@ -1,5 +1,5 @@
 server:
-  port: 0
+  port: 8844
 
 ---
 
@@ -9,12 +9,28 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: nacos.com:8848
+        server-addr: nacos.didispace.com:80
+        namespace: eda986e0-fce6-4787-af44-e84754fcd33e
       config:
-        server-addr: nacos.com:8848
+        server-addr: nacos.didispace.com:80
+        namespace: eda986e0-fce6-4787-af44-e84754fcd33e
     sentinel:
-      zuul:
-        enabled: true
+      transport:
+        dashboard: localhost:8080
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+      - id: account
+        uri: lb://sca-conumer
+        predicates:
+        - Path=/account/**
+        filters:
+        - StripPrefix=1
+
+
 
 
 

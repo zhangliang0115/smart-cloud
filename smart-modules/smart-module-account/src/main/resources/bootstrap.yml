@@ -20,6 +20,10 @@ spring:
         shared-dataids: db.yaml
 
 ---
+server:
+  port: 8180
+---
+
 logging:
   level:
     root: warn

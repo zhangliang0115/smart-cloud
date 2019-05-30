@@ -11,7 +11,7 @@ import org.apache.dubbo.config.annotation.Service;
  * @description
  * @date 2019/5/23 15:59
  **/
-@Service
+@Service(protocol = {"dubbo","rest"})
 public class AccountServiceImpl extends ServiceImpl<UserMapper, User> implements AccountService {
 
     @Override

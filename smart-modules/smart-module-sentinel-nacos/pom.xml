@@ -5,11 +5,10 @@
     <parent>
         <artifactId>smart-modules</artifactId>
         <groupId>com.smart.cloud</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
     </parent>
     <groupId>com.smart.cloud</groupId>
     <artifactId>smart-module-sentinel-nacos</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>smart-module-sentinel-nacos</name>
     <description>Demo project for Spring Boot</description>
 

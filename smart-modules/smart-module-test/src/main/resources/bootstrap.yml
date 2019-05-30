@@ -7,8 +7,9 @@ spring:
     allow-bean-definition-overriding: true
   cloud:
     nacos:
-      #            config:
-      #                server-addr: nacos.com:8848
+      config:
+#        server-addr: nacos.com:8848
+#        namespace: eda986e0-fce6-4787-af44-e84754fcd33e
       discovery:
         server-addr: nacos.didispace.com:80
         namespace: eda986e0-fce6-4787-af44-e84754fcd33e
