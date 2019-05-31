@@ -24,7 +24,7 @@ spring:
           lower-case-service-id: true
       routes:
       - id: account
-        uri: lb://sca-conumer
+        uri: lb://account-provider
         predicates:
         - Path=/account/**
         filters:

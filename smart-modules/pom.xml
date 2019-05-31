@@ -26,18 +26,7 @@
         <java.version>1.8</java.version>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <!--Smart dependencies-->
-            <dependency>
-                <groupId>com.smart.cloud</groupId>
-                <artifactId>smart-cloud-dependencies</artifactId>
-                <version>${project.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+
 
     <!--    <build>-->
     <!--        <plugins>-->

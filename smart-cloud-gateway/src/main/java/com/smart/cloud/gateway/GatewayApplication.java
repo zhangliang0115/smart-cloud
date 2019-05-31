@@ -1,27 +1,23 @@
 package com.smart.cloud.gateway;
 
-import com.alibaba.csp.sentinel.adapter.gateway.common.rule.GatewayFlowRule;
+import com.alibaba.csp.sentinel.adapter.gateway.sc.callback.BlockRequestHandler;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.cloud.gateway.discovery.DiscoveryClientRouteDefinitionLocator;
-import org.springframework.cloud.gateway.discovery.DiscoveryLocatorProperties;
-import org.springframework.cloud.gateway.filter.GatewayFilter;
-import org.springframework.cloud.gateway.filter.GatewayFilterChain;
-import org.springframework.cloud.gateway.filter.ratelimit.RateLimiter;
-import org.springframework.cloud.gateway.filter.ratelimit.RedisRateLimiter;
-import org.springframework.cloud.gateway.route.RouteDefinitionLocator;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.server.ServerWebExchange;
-import reactor.core.publisher.Mono;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.reactive.function.server.ServerResponse;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.springframework.web.reactive.function.BodyInserters.fromObject;
 
 /**
  * @author zhangliang
@@ -40,22 +36,32 @@ public class GatewayApplication {
 
     @Bean
     @RefreshScope
-    public Map<String,String> getName(){
-        Map<String,String> map=new HashMap<>();
-        map.put("name",name);
-       return  map;
-   }
-
-
-
-
-    public static void main(String[] args) {
-    		new SpringApplicationBuilder(GatewayApplication.class)
-                    .run(args);
+    public Map<String, String> getName() {
+        Map<String, String> map = new HashMap<>();
+        map.put("name", name);
+        return map;
     }
 
 
-//    @Bean
+    public static void main(String[] args) {
+        new SpringApplicationBuilder(GatewayApplication.class)
+                .run(args);
+    }
+
+    @Bean
+    public BlockRequestHandler blockRequestHandler() {
+        return (exchange, t) ->{
+            JSONObject json=new JSONObject();
+            json.put("code", HttpStatus.TOO_MANY_REQUESTS.value());
+            json.put("massage",HttpStatus.TOO_MANY_REQUESTS.getReasonPhrase());
+             return   ServerResponse.status(HttpStatus.TOO_MANY_REQUESTS)
+                        .contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .body(fromObject(json));
+        };
+
+    }
+
+    //    @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
 //                .route("path_route", r -> r.path("/get","/anything","/ip")
@@ -67,7 +73,6 @@ public class GatewayApplication {
                         .uri("http://httpbin.org"))
                 .route("websocket_route", r -> r.path("/echo")
                         .uri("ws://localhost:9000"))
-
 
 
 //                .route("hystrix_route", r -> r.host("*.hystrix.org")
@@ -82,7 +87,6 @@ public class GatewayApplication {
 //                        .uri("http://httpbin.org"))
                 .build();
     }
-
 
 
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.smart.cloud</groupId>
+    <artifactId>smart-cloud-examples</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+
+    <name>smart-cloud-examples</name>
+    <modules>
+        <module>smart-cloud-examples-provider</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--Spring Cloud dependencies-->
+            <dependency>
+                <groupId>com.smart.cloud</groupId>
+                <artifactId>smart-cloud-dependencies</artifactId>
+                <version>1.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+    </dependencies>
+
+
+</project>
