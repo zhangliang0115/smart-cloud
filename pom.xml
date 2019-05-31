@@ -15,6 +15,7 @@
         <module>smart-cloud-cache</module>
         <module>smart-cloud-auth</module>
         <module>smart-modules</module>
+        <module>smart-cloud-notes</module>
     </modules>
     <packaging>pom</packaging>
 
