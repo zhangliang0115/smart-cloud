@@ -6,7 +6,7 @@
         <artifactId>smart-cloud</artifactId>
         <groupId>com.smart.cloud</groupId>
         <version>1.0</version>
-        <relativePath/>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>com.smart.cloud</groupId>
     <artifactId>smart-modules</artifactId>

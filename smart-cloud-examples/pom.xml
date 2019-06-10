@@ -11,8 +11,18 @@
 
     <name>smart-cloud-examples</name>
     <modules>
-        <module>smart-cloud-examples-provider</module>
     </modules>
+
+    <repositories>
+        <repository>
+            <id>spring-snapshot</id>
+            <name>Spring Snapshot Repository</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <dependencyManagement>
         <dependencies>

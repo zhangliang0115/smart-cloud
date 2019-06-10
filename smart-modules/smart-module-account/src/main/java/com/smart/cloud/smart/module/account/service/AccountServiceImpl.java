@@ -43,7 +43,7 @@ public class AccountServiceImpl extends ServiceImpl<UserMapper, User> implements
     @Override
     @GetMapping("/get")
     public Object get() {
-        System.out.println("port:"+port);
+        System.out.println("current port 666 :"+port);
         return listMaps();
     }
 }
