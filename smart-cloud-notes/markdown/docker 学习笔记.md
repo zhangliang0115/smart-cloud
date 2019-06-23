@@ -155,3 +155,49 @@ Dockerfile 指令
 
 ![docker指令](https://note.youdao.com/yws/public/resource/24c16b234326541cbc49d6e2b286429a/xmlnote/B6A3EA4176D14E309FAC271FF9C01A03/3545)
 
+===========================
+
+# 迁移与备份
+
+## 容器保存为镜像
+
+```
+docker commit mynginx mynginx_1
+```
+
+
+
+## 镜像备份
+
+```
+docker save -o mynginx.tar mynginx_1
+```
+
+
+
+## 镜像恢复与迁移
+
+```
+docker load -i mynginx.tar
+```
+
+
+
+# docker 网络
+
+```shell
+docker network ls
+```
+
+```
+docker network create 网络名
+```
+
+```yaml
+networks:
+  default:
+    external:
+      name: my-pre-existing-network
+```
+
+https://blog.csdn.net/Kiloveyousmile/article/details/79830810
