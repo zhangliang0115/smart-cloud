@@ -201,3 +201,16 @@ networks:
 ```
 
 https://blog.csdn.net/Kiloveyousmile/article/details/79830810
+
+# Docker网络基础---Docker跨主机容器访问通信
+
+https://www.linuxidc.com/Linux/2016-10/136354.htm
+
+
+
+时间同步
+
+```shell
+-v /etc/localtime:/etc/localtime:ro
+```
+
